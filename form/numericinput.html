@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numeric Input Validation</title>
+  <style>
+h1{
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+    font-family: Times New Roman;
+}
+body{
+    background-color:rgb(230, 216, 216);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #464545;
+}
+    /* General form styling */
+.yes{
+    form {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0%;
+  }
+
+/* Error message styling */
+error-message {
+    color: red;
+    display: none; /* Hide by default */
+  }
+}
+  
+
+  </style>
+</head>
+<body>
+    <h1>Numeric Input Form </h1>
+<div class="yes">
+  <form onsubmit="return validateForm()">
+    <label for="number">Enter a number:</label><br>
+    <input type="number" id="number" name="number" required><br>
+    <span id="error-message"></span>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+  <script>
+    function validateForm() {
+        const numberInput = document.getElementById("number");
+        const errorMessage = document.getElementById("error-message");
+      
+        if (isNaN(numberInput.value)) {
+          errorMessage.textContent = "Please enter a valid number.";
+          errorMessage.style.display = "block"; /* Show error message */
+          numberInput.focus(); /* Focus on the input field */
+          return false; /* Prevent form submission */
+        } else {
+          errorMessage.style.display = "none"; /* Hide error message if valid */
+          return true; /* Allow form submission */
+        }
+      }
+      
+  </script>
+</body>
+</html>

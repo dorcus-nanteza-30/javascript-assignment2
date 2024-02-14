@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+ body {
+            background-color: #ddcdcd;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #464545;
+        }
+ h2{
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+ }       
+        /* General form styling */
+
+form {
+    /* Apply styles for the overall form container */
+    font-size: larger;
+    text-align: center;
+    font-family: Times New Roman;
+   
+  }
+  
+  /* Input fields */
+ .yeah{
+    /* Apply styles for all input fields */
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+  border: none;
+    box-sizing: border-box;
+
+ /* Labels */
+ label {
+    /* Apply styles for labels */
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  /* Button */
+  button[type="submit"] {
+    /* Apply styles for the submit button */
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    height:10% ;
+
+  }
+  
+  /* Error message styling (if using a custom alert) */
+  error-message {
+    /* Apply styles for error messages */
+    color: rgb(223, 5, 5);
+  }
+  
+  input:invalid {
+    /* Apply styles to highlight invalid fields */
+    border: 2px solid rgb(218, 204, 204);
+  }
+}
+  
+ </style>
+    
+</head>
+<body>
+    <h2>MY FRIST JAVASCRIPT FORM</h2>
+<div class="yeah">
+    <form onsubmit="return validateForm()">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+</div>
+    <script>
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+
+            if (email === "" || name === "" || password === "") {
+                alert("Please fill all the values!");
+                return false; // Prevent form submission
+            }
+
+            // Add additional validation checks if needed:
+            // - Length
+            // - Email format
+            // - Password strength
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
